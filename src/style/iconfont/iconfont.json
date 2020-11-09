@@ -1,0 +1,114 @@
+{
+  "id": "2178966",
+  "name": "NeteaseMuisc",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "一个基于vue开发的音乐项目",
+  "glyphs": [
+    {
+      "icon_id": "15838561",
+      "name": "arrow-left-bold",
+      "font_class": "arrow-left-bold",
+      "unicode": "e685",
+      "unicode_decimal": 59013
+    },
+    {
+      "icon_id": "15838566",
+      "name": "arrow-right-bold",
+      "font_class": "arrow-right-bold",
+      "unicode": "e687",
+      "unicode_decimal": 59015
+    },
+    {
+      "icon_id": "320121",
+      "name": "music",
+      "font_class": "music",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "1945190",
+      "name": "music",
+      "font_class": "music1",
+      "unicode": "e699",
+      "unicode_decimal": 59033
+    },
+    {
+      "icon_id": "3874688",
+      "name": "静音",
+      "font_class": "jingyin",
+      "unicode": "e62a",
+      "unicode_decimal": 58922
+    },
+    {
+      "icon_id": "4956169",
+      "name": "单曲循环",
+      "font_class": "danquxunhuan-",
+      "unicode": "e6e7",
+      "unicode_decimal": 59111
+    },
+    {
+      "icon_id": "9592230",
+      "name": "icon-music",
+      "font_class": "yinyue",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "10357495",
+      "name": "随机播放",
+      "font_class": "suijibofang",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "13019426",
+      "name": "顺序播放",
+      "font_class": "shunxubofang",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "13250783",
+      "name": "音量",
+      "font_class": "yinliang",
+      "unicode": "e753",
+      "unicode_decimal": 59219
+    },
+    {
+      "icon_id": "17286527",
+      "name": "视频",
+      "font_class": "shipin",
+      "unicode": "e7c7",
+      "unicode_decimal": 59335
+    },
+    {
+      "icon_id": "44573",
+      "name": "theme",
+      "font_class": "theme",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "1160153",
+      "name": "home",
+      "font_class": "home",
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "5286702",
+      "name": "缩小",
+      "font_class": "suoxiao",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
+    },
+    {
+      "icon_id": "5286714",
+      "name": "全屏",
+      "font_class": "quanping",
+      "unicode": "e63f",
+      "unicode_decimal": 58943
+    }
+  ]
+}
