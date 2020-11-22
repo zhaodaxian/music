@@ -27,9 +27,6 @@ export default {
       // this.$router.push(`/playlist/${this.id}`)
     },
   },
-  created() {
-    console.log(this.img)
-  },
 }
 </script>
 

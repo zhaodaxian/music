@@ -2,15 +2,18 @@
   <div class="discovery">
     <banner />
     <new-playlists />
+    <new-song />
   </div>
 </template>
 <script>
 import banner from './banner';
-import NewPlaylists from './new-playlists'
+import NewPlaylists from './new-playlists';
+import NewSong from './new-song'
 export default {
   components: {
     banner,
-    NewPlaylists
+    NewPlaylists,
+    NewSong
   }
 }
 </script>

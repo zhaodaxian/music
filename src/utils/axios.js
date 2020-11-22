@@ -5,7 +5,7 @@ let LOADING
 let LOADINGCOUNT = 0
 function handleResponse(response) {
   if (response.status === 200) {
-    return Promise.resolve(response.data)
+    return response.data
   }
 }
 // 全局请求处理
@@ -16,7 +16,7 @@ function handleResponseError (Error) {
   }else{
     Message.error('断网处理')
   }
-  throw Error
+  return Promise.reject(Error)
 }
 function createBaseInstance () {
   const instance = axios.create({
@@ -40,19 +40,21 @@ function createBaseInstance () {
 // 全局请求处理
 function minLoading (interceptors) {
   interceptors.request.use(requsetLoadingInterceptor)
-  interceptors.response.use(responseSuccess, responseError)
+  interceptors.response.use(
+    responseSuccess,
+    responseError)
 
   function requsetLoadingInterceptor (config) {
     if (!LOADING) {
+      LOADINGCOUNT++
       LOADING = Loading.service({
         lock: true,
         text: 'Loading',
         spinner: 'el-icon-loading',
         background: 'rgba(0, 0, 0, 0.7)'
       })
-      LOADINGCOUNT++
-      return config
     }
+    return config
   }
   function handleResponseLoading () {
     LOADINGCOUNT--
@@ -67,7 +69,7 @@ function minLoading (interceptors) {
   }
   function responseError (Error) {
     handleResponseLoading()
-    handleResponseError(Error)
+    throw Error
   }
 }
 export const request = createBaseInstance()
