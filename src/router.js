@@ -10,6 +10,9 @@ const Playlists = () => import(/* webpackChunkName: "Playlists" */ '@/views/play
 const Songs = () => import(/* webpackChunkName: "Songs" */ '@/views/songs')
 const Mvs = () => import(/* webpackChunkName: "Mvs" */ '@/views/mvs')
 
+// 内容需要居中的页面
+export const layoutCenterNames = ['discovery', 'playlists', 'songs', 'mvs']
+
 export const valueRouter = [
   {
     path: '/discovery',

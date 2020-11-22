@@ -3,6 +3,7 @@ export default {
   // font-color
   ['--font-color']: '#4a4a4a',
   ['--font-color-grey']: '#5C5C5C',
+  ['--font-color-white']: '#333333',
 
   //header
   ['--header-bgcolor']: '#f9f9f9',
@@ -15,7 +16,7 @@ export default {
   // search
   ['--search-bgcolor']: '#fff',
   // button
-  ['--button-border-color']: '#454545',
-  ['--button-hover-bgcolor']: '#3E3E3E'
+  ['--button-border-color']: '#d9d9d9',
+  ['--button-hover-bgcolor']: '#F5F5F5'
 
 }

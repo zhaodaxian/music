@@ -1,3 +1,3 @@
 <template>
-  <div>推荐音乐</div>
+  <div>最新音乐</div>
 </template>

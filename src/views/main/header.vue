@@ -12,14 +12,12 @@
   </div>
 </template>
 <script>
-import Theme from 'components/Theme'
-import Search from 'components/Search'
-import RoutesHistory from 'basecomponents/routes-history'
+import Theme from 'components/Theme';
+import Search from 'components/Search';
 export default {
   components: {
     Theme,
-    Search,
-    RoutesHistory
+    Search
   },
   data() {
     return {

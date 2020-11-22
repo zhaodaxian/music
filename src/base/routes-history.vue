@@ -17,6 +17,7 @@
 </template>
 <script>
 export default {
+  name: 'RoutesHistory',
   methods: {
     back() {
       this.$router.back()

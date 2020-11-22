@@ -22,32 +22,53 @@
           <p class="title">
             热门搜索
           </p>
-          <div class="tags">
+          <div class="tags" v-if="hotList.length">
             <NButton
-            @click="onClick"
+              @click="onClick"
               class="button"
+              v-for="(item, index) in hotList"
+              :key="index"
             >
-              ssss
+              {{item.first}}
             </NButton>
+          </div>
+          <div v-else>
+            当前暂无热门内容
           </div>
         </div>
         <div class="block">
-          222
+          <p class="title">
+            热门搜索
+          </p>
+          <div class="tags" v-if="localList.length">
+            <NButton
+              @click="onClick"
+              class="button"
+              v-for="(item, index) in localList"
+              :key="index"
+            >
+              {{item.first}}
+            </NButton>
+          </div>
+          <div v-else>
+            暂无搜索历史
+          </div>
         </div>
       </div>
     </Toggle>
   </div>
 </template>
 <script>
-import Toggle from 'basecomponents/toggle'
+import storage from 'good-storage'
+import { getSearch } from 'api';
+const SEARCH_HISTORY_KEY = "__search_history__"
 export default {
-  components: {
-    Toggle
-  },
   data() {
     return {
       searchKeyword: '',
-      searchPanelShow: false
+      searchPanelShow: false,
+      hotList: [],
+      localList: storage.get(SEARCH_HISTORY_KEY, [])
     }
   },
   methods: {
@@ -57,10 +78,28 @@ export default {
     onInput () {
     },
     onEnterPress (event) {
-      console.log(event )
+      if (this.searchKeyword) {
+        this.goSearch(this.searchKeyword)
+      }
+    },
+    goSearch (value) {
+      this.localList.unshift({first: value})
+      this.localList.splice(10,1)
+      storage.set(SEARCH_HISTORY_KEY, this.localList)
+      this.searchPanelShow = false
+      this.searchKeyword = ''
+
     },
     onClick (e) {
     }
+  },
+  beforeCreate() {
+    getSearch()
+    .then((res) => {
+      this.hotList = res.result.hots
+    })
+  },
+  created() {
   },
 }
 </script>
@@ -72,7 +111,7 @@ export default {
   right: 0;
   width: 350px;
   background: var(--search-bgcolor);
-  // z-index: $search-panel-z-index;
+  z-index: $search-panel-z-index;
   font-size: $font-size-sm;
   overflow-y: auto;
   @include box-shadow;

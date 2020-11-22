@@ -5,21 +5,29 @@
       <div
         class="main-menu"
       >
-      <main-menu />
+        <main-menu />
       </div>
       <div class="content">
-        <router-view></router-view>
+        <router-view :class="routerViewCls" />
       </div>
     </div>
   </div>
 </template>
 <script>
 import Header from './header';
-import MainMenu from './menu'
+import MainMenu from './menu';
+import { layoutCenterNames } from "@/router"
 export default {
   components: {
     Header,
     MainMenu
+  },
+  computed: {
+    routerViewCls() {
+      return layoutCenterNames.find(name => name === this.$route.name)
+        ? "router-view-center"
+        : ""
+    }
   }
 }
 </script>
@@ -33,11 +41,17 @@ export default {
   }
   .main-menu{
     width: 250px;
-    height: 100%;
+    height: calc(100% - #{$mini-player-height});
   }
   .content{
     flex: 1;
-    height: 100%;
+    overflow-y: auto;
+    min-width: $layout-content-min-width;
+    margin-bottom: $mini-player-height;
+    .router-view-center {
+      max-width: $center-content-max-width;
+      margin: auto;
+    }
   }
 }
 

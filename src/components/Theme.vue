@@ -27,8 +27,9 @@
   </div>
 </template>
 <script>
-import variables from 'style/theme/variables'
-import variablesDark from 'style/theme/variables-dark'
+import variables from 'style/theme/variables';
+import variablesDark from 'style/theme/variables-dark';
+import storage from 'good-storage'
 const THEME_KEY = "__theme__"
 const themes = {
   white: "white",
@@ -58,7 +59,7 @@ export default {
   methods: {
     changeTheme(themeKey) {
       const theme = this.themeMap[themeKey].file
-      localStorage.setItem(THEME_KEY, themeKey)
+      storage.set(THEME_KEY, themeKey)
       Object.keys(theme).forEach(key => {
         let value = theme[key]
         document.documentElement.style.setProperty(key, value)
@@ -66,7 +67,7 @@ export default {
     }
   },
   created() {
-    let key = localStorage.getItem(THEME_KEY)
+    let key = storage.get(THEME_KEY, 'white')
     this.changeTheme(key)
   }
 }

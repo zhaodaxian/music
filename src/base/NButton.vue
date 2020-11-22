@@ -8,6 +8,7 @@
 </template>
 <script>
 export default {
+  name: 'NButton',
   methods: {
     onClick (event) {
       this.$emit('click', event)

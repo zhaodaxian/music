@@ -8,8 +8,8 @@ module.exports = {
     config.resolve.alias
     //set第一个参数：设置的别名，第二个参数：设置的路径
     .set('style', resolve('./src/style'))
+    .set('api', resolve('./src/api/'))
     .set('components', resolve('./src/components'))
-    .set('basecomponents', resolve('./src/baseComponent'))
   },
   css: {
     loaderOptions: {

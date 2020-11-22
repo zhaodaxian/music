@@ -4,17 +4,12 @@
   </div>
 </template>
 <script>
-function hasParent (dom, banDom) {
-  banDom = Array.isArray(banDom) ? banDom : [banDom]
-  while (dom) {
-    if (banDom.find(p => p === dom)) {
-      return true
-    }else{
-      dom = dom.parentNode
-    }
-  }
-}
+import {
+  hasParent,
+  aa
+} from '@/utils/dom'
 export default {
+  name: 'Toggle',
   props: {
     show: {
       type: Boolean,
@@ -27,14 +22,14 @@ export default {
   },
   methods: {
     clickEvent (event) {
-      const triggerElement = event.target
-      const firstDom = this.$slots.default[0].elm
-      const defineArray = [firstDom, ...this.reserveDoms]
-      if (!hasParent(triggerElement, defineArray)) {
+      const targetElement = event.target
+      const slotElement = this.$slots.default[0].elm
+      const defaultDom = [slotElement, ...this.reserveDoms]
+      if (!hasParent(targetElement, defaultDom)) {
         this.$emit('update:show', false)
       }
     },
-    openClick () {
+    openClick (event) {
       document.addEventListener('mousedown', this.clickEvent)
     },
     removeClick () {
