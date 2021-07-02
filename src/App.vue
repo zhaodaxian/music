@@ -1,4 +1,5 @@
 <template>
+  //新增加一些注释用来做测试用
   <div id="app">
     <Main />
     <!-- <router-view/> -->
